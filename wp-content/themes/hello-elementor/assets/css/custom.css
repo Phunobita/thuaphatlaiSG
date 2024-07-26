@@ -21,6 +21,11 @@ body {
   color: var(--white-clr) !important;
 }
 
+/* MENU */
+.wpr-mobile-nav-menu {
+  margin-top: 30px !important;
+}
+
 /* --------------------- */
 
 /* HEADER SEARCH */
@@ -34,8 +39,8 @@ body {
 .header-search-main {
   position: absolute;
   display: none;
-  right: 50%;
-  top: 70%;
+  right: 40%;
+  top: 100%;
 }
 
 .header-search-main form {
@@ -45,8 +50,37 @@ body {
   z-index: 1000;
 }
 
+.header-search-main form:before {
+  position: absolute;
+  content: "";
+  top: -10px;
+  z-index: 3;
+  right: 10px;
+  border-bottom: 10px solid var(--primary-clr);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
 /* Header breadcumb */
-.header-breadcumb,
+.header-breadcumb {
+  color: var(--white-clr) !important;
+  padding: 12px;
+  background-color: var(--primary-clr);
+  border-bottom: 1px solid var(--white-clr);
+  display: flex;
+  justify-content: center;
+}
+
+.header-breadcumb div {
+  width: 1200px;
+  padding: 2px 10px;
+  text-align: right;
+}
+
+.header-breadcumb div i {
+  margin-right: 4px;
+}
+
 .header-breadcumb a {
   color: var(--white-clr) !important;
 }
@@ -117,10 +151,10 @@ body {
   border: none;
 }
 
-.contact-form-main .wpcf7-submit:hover {
-  background-color: transparent;
-  color: var(--primary-clr);
-  border: 1px solid var(--primary-clr);
+.wpcf7-submit:hover {
+  background-color: transparent !important;
+  color: var(--primary-clr) !important;
+  border: 1px solid var(--primary-clr) !important;
 }
 
 /* LIÊN HỆ */
@@ -245,6 +279,13 @@ body {
   left: 25%;
 }
 
+.post-recruitment-form {
+  display: none;
+}
+
+.category-tuyen-dung .post-recruitment-form {
+  display: block !important;
+}
 /* TIN TỨC */
 
 .post-list .wpr-grid-item {
@@ -308,4 +349,44 @@ body {
   right: 16px;
   bottom: 90px;
   width: 30px !important;
+}
+
+/* toast message form */
+.wpcf7 form.invalid .wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  position: fixed;
+  top: 124px;
+  right: 0;
+  z-index: 100;
+  color: #243746;
+  background: #fff;
+  padding: 20px 12px;
+  border: none;
+  border-left: 6px solid var(--primary-clr) !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  width: 500px;
+  animation: fadeInRight linear 0.3s, fadeOut linear 1s 4s forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(calc(100% + 18px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
 }

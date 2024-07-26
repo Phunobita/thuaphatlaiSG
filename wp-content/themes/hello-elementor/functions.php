@@ -275,6 +275,20 @@ if (!function_exists('hello_elementor_body_open')) {
 	}
 }
 
+// Insert breadcumb
+function add_text_before_content($content)
+{
+	if (!is_front_page() && is_page()) {
+		$shortcode = '[wpseo_breadcrumb]';
+		$custom_text = '<div class="header-breadcumb"><div><i class="fas fa-home"></i>' . do_shortcode($shortcode) .
+			'</div></div>';
+		$content = $custom_text . $content;
+	}
+	return $content;
+}
+add_filter('the_content', 'add_text_before_content');
+
+
 function my_styles()
 {
 	wp_enqueue_script('my-javascript.js', get_theme_file_uri('/assets/js/my-javascript.js'), array(), '1.0', true);
